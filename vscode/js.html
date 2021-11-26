@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="button" value="点我点我" onclick="alert('松山院联系方式')" />
+    <!-- 引入外部的 js 文件
+	<script src="tool.js"></script> -->
+	<script>
+		// 在这里写 JS 代码
+		alert('松山院联系方式');
+		console.log('松山院联系方式');
+        var str1 = "我说:\"今天\t天气真不错！\"";
+        var str2 = "\\\\\\";
+        console.log(str1);
+        console.log(str2);
+
+        var str1 = '松山院';
+        var str2 = '好好学习，天天向上!';
+        var str3 = 'SSY';
+        var str4 = 'good good study, day day up!';
+        console.log(str1.length);  
+        console.log(str2.length);  
+        console.log(str3.length);  
+        console.log(str4.length);
+
+        var str1 = '松山院' + '好好学习';
+        var str2 = '松山院' + 666;
+        var str3 = '松山院' + true;
+        var str4 = '松山院' + null;
+        var str5 = '松山院' + undefined;
+        var obj = { name: '松山院', age: 20 };
+        var str6 = '松山院' + obj;
+        console.log(str1);
+        console.log(str2);
+        console.log(str3);
+        console.log(str4);
+        console.log(str5);
+        console.log(str6);
+
+        var name = 'ssy';
+        var age = '20';
+        console.log('我是' + name + ',age:' + age); //传统写法
+        console.log(`我是${name},age:${age}`);      //ES6写法，注意语法格式
+
+        function getName() {	
+        return 'ssy';
+        }
+        console.log(`www.${getName()}.com`);  // 打印结果：www.ssy.com
+
+        var a = 100; 						// 定义一个变量 a，并且赋值整数100
+        console.log(typeof a); 	// 输出变量 a 的类型
+        var b = 12.3; 					// 定义一个变量 b，并且赋值浮点数 12.3
+        console.log(typeof a);
+	</script>
+    </body>
+</html>

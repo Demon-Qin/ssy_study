@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 使用CDN模式引入网络的vue.js文件 -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <link type="text/css" rel="styleSheet"  href="CSS文件路径">
+</head>
+
+<body>
+    <div id ="app"> </div>
+
+    <script>
+    let retCode = 1003; // 返回码 retCode 的值可能有很多种情况
+
+switch (retCode) {
+    case 0:
+        alert('接口联调成功');
+        break;
+    case 101:
+        alert('活动不存在');
+        break;
+
+    case 103:
+        alert('活动未开始');
+        break;
+
+    case 104:
+        alert('活动已结束');
+        break;
+
+    case 1001:
+        alert('参数错误');
+        break;
+
+    case 1002:
+        alert('接口频率限制');
+        break;
+
+    case 1003:
+        alert('未登录');
+        break;
+
+    case 1004:
+        alert('（风控用户）提示 活动太火爆啦~  请稍后再试');
+        break;
+
+    // 其他异常返回码
+    default:
+        alert('系统失联了，请稍候再试');
+        break;
+}
+    </script>
+</body>
+
+</html>
