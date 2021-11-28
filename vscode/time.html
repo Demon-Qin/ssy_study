@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 使用CDN模式引入网络的vue.js文件 -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <link type="text/css" rel="styleSheet"  href="CSS文件路径">
+</head>
+
+<body>
+    <div id ="app"> </div>
+
+    <script>
+    const date11 = new Date('2021/11/25 21:00:00')
+    console.log(date11)  //Thu Nov 25 2021 21:00:00 GMT+0800 (中国标准时间)
+
+    const date12 = new Date('2020/04/19') // 返回的就是四月
+    console.log(date12) // Sun Apr 19 2020 00:00:00 GMT+0800 (中国标准时间)
+
+    const date13 = new Date('2020-05-20')
+    console.log(date13) // Wed May 20 2020 08:00:00 GMT+0800 (中国标准时间)
+
+    const date14 = new Date('Wed Jan 27 2021 12:00:00 GMT+0800 (中国标准时间)')
+    console.log(date14) // Wed Jan 27 2021 12:00:00 GMT+0800 (中国标准时间)
+
+    const date21 = new Date(2021, 2, 18); // 注意，第二个参数返回的是三月，不是二月
+    console.log(date21); // Thu Mar 18 2021 00:00:00 GMT+0800 (中国标准时间)
+
+    const date22 = new Date(2021, 3, 18, 22, 59, 58);
+    console.log(date22); // Sun Apr 18 2021 22:59:58 GMT+0800 (中国标准时间)
+
+    const params = [2021, 06, 12, 16, 20, 59];
+    const date23 = new Date(...params);
+    console.log(date23); // Mon Jul 12 2021 16:20:59 GMT+0800 (中国标准时间)
+    const date31 = new Date(1637656434940);
+    console.log(date31); // Tue Nov 23 2021 16:33:54 GMT+0800 (中国标准时间)
+
+    // 先把时间对象转换成时间戳，然后把时间戳转换成时间对象
+    const timestamp = new Date().getTime();
+    const date32 = new Date(timestamp);
+    console.log(date32);    // Fri Nov 26 2021 00:15:32 GMT+0800 (中国标准时间)
+    var myDate = new Date();
+
+    console.log(myDate); // 打印结果：Fri Nov 26 2021 00:13:08 GMT+0800 (中国标准时间)
+
+    console.log(myDate.getFullYear()); // 打印结果：2021
+    console.log(myDate.getMonth() + 1); // 打印结果：11
+    console.log(myDate.getDate()); // 打印结果：26
+
+    var dayArr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    console.log(myDate.getDay()); // 打印结果：5
+    console.log(dayArr[myDate.getDay()]); // 打印结果：星期五
+
+    console.log(myDate.getHours());   // 打印结果：0
+    console.log(myDate.getMinutes()); // 打印结果：13
+    console.log(myDate.getSeconds()); // 35
+    console.log(myDate.getMilliseconds()); // 打印结果：459
+
+    console.log(myDate.getTime()); // 获取时间戳，打印结果：1637856836940
+        </script>
+</body>
+
+</html>
