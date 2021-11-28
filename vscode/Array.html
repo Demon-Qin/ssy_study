@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 使用CDN模式引入网络的vue.js文件 -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <link type="text/css" rel="styleSheet"  href="CSS文件路径">
+</head>
+
+<body>
+    <div id ="app"> </div>
+
+    <script>
+     var arr1 = [11, 12, 13];
+
+    // 方式二
+    var arr2 = new Array(); // 参数为空
+    var arr3 = new Array(4); // 参数为一个数值
+    var arr4 = new Array(15, 16, 17); // 参数为多个数值
+
+    console.log(typeof arr1); // 打印结果：object
+
+    console.log('arr1 = ' + JSON.stringify(arr1));
+    console.log('arr2 = ' + JSON.stringify(arr2));
+    console.log('arr3 = ' + JSON.stringify(arr3));
+    console.log('arr4 = ' + JSON.stringify(arr4));
+
+    var arr = ['王一', '王二', '王三'];
+    var result1 = arr.push('王四'); // 末尾插入一个元素
+    var result2 = arr.push('王五', '王六'); // 末尾插入多个元素
+
+    console.log(result1); // 打印结果：4
+    console.log(result2); // 打印结果：6
+    console.log(JSON.stringify(arr)); // 打印结果：["王一","王二","王三","王四","王五","王六"]
+
+    
+    </script>
+</body>
+
+</html>

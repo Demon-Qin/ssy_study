@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 使用CDN模式引入网络的vue.js文件 -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <link type="text/css" rel="styleSheet"  href="CSS文件路径">
+</head>
+
+<body>
+    <div id ="app"> </div>
+
+    <script>
+    // const arr = ['a', 'b', 'c', 'd', 'e', 'f'];
+    // const result1 = arr.slice(); // 不加参数时，则获取所有的元素。相当于数组的整体赋值
+    // const result2 = arr.slice(2); // 从第二个值开始提取，直到末尾
+    // const result3 = arr.slice(-2); // 提取最后两个元素
+    // const result4 = arr.slice(2, 4); // 提取从第二个到第四个之间的元素（不包括第四个元素）
+    // const result5 = arr.slice(4, 2); // 空
+
+    // console.log('arr:' + JSON.stringify(arr));
+    // console.log('result1:' + JSON.stringify(result1));
+    // console.log('result2:' + JSON.stringify(result2));
+    // console.log('result3:' + JSON.stringify(result3));
+    // console.log('result4:' + JSON.stringify(result4));
+    // console.log('result5:' + JSON.stringify(result5));
+
+    // const arr1 = [1, 2, 3]
+    // const arr2 = ['a', 'b', 'c']
+    // const arr3 = ['松山院', 'hello']
+    // const result1 = arr1.concat(arr2)
+    // const result2 = arr2.concat(arr1, arr3)
+    // console.log('arr1 =' + JSON.stringify(arr1))
+    // console.log('arr2 =' + JSON.stringify(arr2))
+    // console.log('arr3 =' + JSON.stringify(arr3))
+    // console.log('result1 =' + JSON.stringify(result1))
+    // console.log('result2 =' + JSON.stringify(result2))
+
+    // var arr = ['a', 'b', 'c'];
+    // var result1 = arr.join(); // 这里没有指定连接符，所以默认使用 , 作为连接符
+    // var result2 = arr.join('-'); // 使用指定的字符串作为连接符
+    // console.log(typeof arr); // 打印结果：object
+    // console.log(typeof result1); // 打印结果：string
+    // console.log('arr =' + JSON.stringify(arr));
+    // console.log('result1 =' + JSON.stringify(result1));
+    // console.log('result2 =' + JSON.stringify(result2));
+
+    // let arr1 = [1, 3, 6, 2, 5, 6];
+    // let arr2 = arr1.filter((item) => item > 4); // 将arr1中大于4的元素返回，组成新的数组
+    // console.log(JSON.stringify(arr1)); // 打印结果：[1,3,6,2,5,6]
+    // console.log(JSON.stringify(arr2)); // 打印结果：[6,5,6]
+
+    const arr1 = [
+    { name: '陈奕迅', type: '男星' },
+    { name: '王菲', type: '女星' },
+    { name: '邓紫棋', type: '女星' },
+    { name: '周杰伦', type: '男星' },
+    { name: '黄渤', type: '男星' },
+    { name: '周迅', type: '女星' },
+    ]
+    const arr2 = arr1.filter((item) => item.type == '女星') // 筛选出女星
+    console.log(JSON.stringify(arr2))
+    </script>
+</body>
+
+</html>
