@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通过call()实现继承</title>
+</head>
+
+<body>
+  <script>
+    // 给 Father 增加 name 和 age 属性
+    function Father(myName, myAge) {
+      this.name = myName;
+      this.age = myAge;
+    }
+
+    function Son(myName, myAge) {
+      // 通过这一步，将 father 里面的 this 修改为 Son 里面的 this；
+      // 另外，给 Son 加上相应的参数，让 Son 自动拥有 Father 里的属性，最终实现继承
+      Father.call(this, myName, myAge);
+    }
+
+    const son1 = new Son('松山院', 20);
+    console.log(JSON.stringify(son1));
+  </script>
+</body>
+
+</html>

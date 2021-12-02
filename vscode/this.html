@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数内this的指向(1)</title>
+</head>
+
+<body>
+  <script>
+    // 1.以函数的形式（包括普通函数、定时器函数、立即执行函数）调用时，this的指向永远都是 window。
+    function fun() {
+      console.log(this);
+      console.log(this.name);
+    }
+
+    var obj1 = {
+      name: 'ssy',
+      sayName: fun,
+    };
+
+    var obj2 = {
+      name: 'JavaScript',
+      sayName: fun,
+    };
+
+    var name = '全局name属性';
+
+    //以函数形式调用，this是window
+    fun();  //可以理解成 window.fun()
+  </script>
+</body>
+
+</html>
