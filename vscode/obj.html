@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 使用CDN模式引入网络的vue.js文件 -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <link type="text/css" rel="styleSheet" href="CSS文件路径">
+</head>
+
+<body>
+    <div id="app"> </div>
+
+    <script>
+        const obj1 = {
+            name: '松山院',
+            age: 20,
+        }
+        console.log(JSON.stringify(obj1))
+        const obj2 = {
+            name: '松山院',
+            age: 20,
+            isBoy: true,
+            // 还可以存放一个嵌套的对象
+            info: {
+                id: 123,
+                height: 180
+            },
+            //还可以在对象中增加一个方法,可以通过obj.sayName()的方式调用这个方法
+            sayName: function () {
+                console.log(this.name)
+            }
+        }
+
+        console.log(JSON.stringify(obj2))
+
+        
+    </script>
+</body>
+
+</html>
