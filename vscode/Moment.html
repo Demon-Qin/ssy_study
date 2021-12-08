@@ -11,15 +11,45 @@
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script>
-    // 按照指定的格式，格式化当前时间
-    console.log(moment().format('YYYY-MM-DD HH:mm:ss'));
-    console.log(typeof moment().format('YYYY-MM-DD HH:mm:ss'));
+    // // 按照指定的格式，格式化当前时间
+    // console.log(moment().format('YYYY-MM-DD HH:mm:ss'));
+    // console.log(typeof moment().format('YYYY-MM-DD HH:mm:ss'));
 
-    // 按照指定的格式，格式化指定的时间
-    console.log(moment('2021-11-24 18:01:59').format('YYYY-MM-DD HH:mm:ss'));
+    // // 按照指定的格式，格式化指定的时间
+    // console.log(moment('2021-11-24 18:01:59').format('YYYY-MM-DD HH:mm:ss'));
 
-    // 按照指定的格式，获取七天后的时间
-    console.log(moment().add(7, 'days').format('YYYY-MM-DD hh:mm:ss'));
+    // // 按照指定的格式，获取七天后的时间
+    // console.log(moment().add(7, 'days').format('YYYY-MM-DD hh:mm:ss'));
+
+
+
+
+    // function Person(){
+    // }
+
+    // //p--->Person.prototype--->Object.prototype--->null
+    // var p = new Person();
+    // //构造函数的**原型**是否在 p 对象的原型链上！
+    // console.log(p instanceof Person);
+
+
+
+
+    //创建方法
+    function Foo(name) {
+      this.name = name;
+    }
+    Foo.prototype.alertName = function () {
+      // 既然 Foo.prototype 是普通的对象，那也允许给它添加额外的属性 alertName
+      console.log(this.name);
+    }
+    var fn = new Foo('hello');
+    fn.printName = function () {
+      console.log(this.name);
+    }
+    //测试
+    fn.printName();   //输出结果：hello
+    fn.alertName();   //输出结果：hello
   </script>
 </body>
 
