@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 使用CDN模式引入网络的vue.js文件 -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <link type="text/css" rel="styleSheet"  href="CSS文件路径">
+</head>
+
+<body>
+    <img src="image/1.png" class="image-box" title="图片1" alt="图片1" id="a1" style="width: 60px;height: 60px;">
+    <script type="text/javascript">  
+      var myNode = document.getElementsByTagName("img")[0];  
+      console.log(myNode.src);   
+      console.log(myNode.className);    //注意，是className，不是class  
+      console.log(myNode.title);    
+      console.log("------------");   
+      console.log(myNode["src"]);  
+      console.log(myNode["className"]); //注意，是className，不是class  
+      console.log(myNode["title"]);
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>innerHTML和innerText的区别</title>
+</head>
+
+<body>
+  <input id="inp1" type="text" value="我是input的value属性的值">
+  <div id="box11">
+    box11: hello
+    <div id="box12">
+      我是box12的内容
+    </div>
+  </div>
+
+  <div id="box21">
+    box21: world
+    <div id="box22">
+      我是box22的内容
+    </div>
+  </div>
+
+  <script>
+    // input标签的value属性
+    console.log(document.getElementById("inp1").value);
+    // innerHTML：获取双闭合标签里的内容（识别标签）
+    console.log(document.getElementById("box11").innerHTML);
+    //innerText：获取双臂和标签里的内容（不识别标签）
+    console.log(document.getElementById("box21").innerText);
+  </script>
+</body>
+
+</html>

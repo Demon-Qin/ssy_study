@@ -31,9 +31,26 @@
     // var p = new Person();
     // //构造函数的**原型**是否在 p 对象的原型链上！
     // console.log(p instanceof Person);
+    var div1 = document.getElementById("box1"); //方式一：通过 id 获取 一个 元素节点（为什么是一个呢？因为 id 是唯一的）
+    var arr1 = document.getElementsByTagName("div"); //方式二：通过 标签名 获取 元素节点数组，所以有s
+    var arr2 = document.getElementsByClassName("hehe"); //方式三：通过 类名 获取 元素节点数组，所以有s
 
-
-
+    document.getElementsByTagName("div1")[0];    //取数组中的第一个元素
+    document.getElementsByClassName("hehe")[0];  //取数组中的第一个元素
+    //下一个兄弟节点 = 节点.nextElementSibling || 节点.nextSibling
+    //前一个兄弟节点 = 节点.previousElementSibling || 节点.previousSibling
+    //节点自己.parentNode.children[index];  //随意得到兄弟节点
+    //第一个子元素节点 = 节点.firstElementChild || 节点.firstChild
+    //最后一个子元素节点 = 节点.lastElementChild || 节点.lastChild
+    //子节点数组 = 父节点.childNodes;   //获取所有节点。
+    //子节点数组 = 父节点.children;   //获取所有节点（用得最多）
+    //新的标签(元素节点) = document.createElement("标签名");
+    //父节点.appendChild(新的子节点); //插入节点有两种方式，它们的含义是不同的。
+    //父节点.insertBefore(新的子节点,作为参考的子节点) //在参考节点前插入一个新的节点。//如果参考节点为null，那么将在父节点里面的最后插入一个子节点。
+    //父节点.removeChild(子节点); //用父节点删除子节点。必须要指定是删除哪个子节点。
+    //node1.parentNode.removeChild(node1); //删除自己这个节点
+    //要复制的节点.cloneNode();       //括号里不带参数和带参数false，效果是一样的
+    //要复制的节点.cloneNode(true); //● 不带参数/带参数false：只复制节点本身，不复制子节点。 ●  带参数true：既复制节点本身，也复制其所有的子节点。
 
     //创建方法
     function Foo(name) {
