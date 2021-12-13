@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装scrollTop和scrollLeft</title>
+    <style>
+        body {
+            height: 6000px;
+            width: 5000px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //需求：封装一个兼容的scroll() 返回对象，用scroll().top获取scrollTop，用scroll().left获取scrollLeft
+        window.onscroll = function () {
+            // var myScroll = scroll();
+            // myScroll.top;
+            console.log(scroll().top);
+            console.log(scroll().left);
+        }
+
+        //函数封装,此函数的返回值是对象
+        function scroll() {
+            return {
+                top: window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+                left: window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+            }
+        }
+        //********************************************************************************************
+        function scroll() {  // 开始封装自己的scrollTop
+            if (window.pageYOffset !== undefined) {  // ie9+ 高版本浏览器
+                // 因为 window.pageYOffset 默认的是  0  所以这里需要判断
+                return {
+                    left: window.pageXOffset,
+                    top: window.pageYOffset
+                }
+            }
+            else if (document.compatMode === "CSS1Compat") {    // 标准浏览器   来判断有没有声明DTD
+                return {
+                    left: document.documentElement.scrollLeft,
+                    top: document.documentElement.scrollTop
+                }
+            }
+            return {   // 未声明 DTD
+                left: document.body.scrollLeft,
+                top: document.body.scrollTop
+            }
+        }
+    </script>
+</body>
+
+</html>

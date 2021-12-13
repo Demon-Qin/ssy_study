@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取显示器的分辨率</title>
+</head>
+
+<body>
+  <script>
+    window.onresize = function () {
+      // 获取显示器分辨率，设置为页面title
+      document.title = window.screen.width + "    " + window.screen.height;
+    }
+
+    function client() {
+      if (window.innerHeight !== undefined) {
+        // ie9及其以上的版本的写法
+        return {
+          width: window.innerWidth,
+          height: window.innerHeight
+        }
+      } else if (document.compatMode === 'CSS1Compat') {
+        // 标准模式的写法（有DTD时）
+        return {
+          width: document.documentElement.clientWidth,
+          height: document.documentElement.clientHeight
+        }
+      } else {
+        // 没有DTD时的写法
+        return {
+          width: document.body.clientWidth,
+          height: document.body.clientHeight
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

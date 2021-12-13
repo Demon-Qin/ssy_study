@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取浏览器的宽高</title>
+</head>
+
+<body>
+  <script>
+    //需求：浏览器每次更改大小，判断是否符合某一标准然后给背景上色。
+    // >960红色，大于640小于960蓝色，小于640绿色。
+    window.onresize = fn;  //页面大小发生变化时，执行该函数。
+    //页面加载的时候直接执行一次函数，确定浏览器可视区域的宽，给背景上色
+    fn();
+    //封装成函数，然后指定的时候去调用和绑定函数名
+    function fn() {
+      if (client().width > 960) {
+        document.body.style.backgroundColor = "#61AFEF";
+      } else if (client().width > 640) {
+        document.body.style.backgroundColor = "#f6f6f6";
+      } else {
+        document.body.style.backgroundColor = "#98C379";
+      }
+    }
+
+
+    function client() {
+      if (window.innerHeight !== undefined) {
+        // ie9及其以上的版本的写法
+        return {
+          width: window.innerWidth,
+          height: window.innerHeight
+        }
+      } else if (document.compatMode === 'CSS1Compat') {
+        // 标准模式的写法（有DTD时）
+        return {
+          width: document.documentElement.clientWidth,
+          height: document.documentElement.clientHeight
+        }
+      } else {
+        // 没有DTD时的写法
+        return {
+          width: document.body.clientWidth,
+          height: document.body.clientHeight
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
