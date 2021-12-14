@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片放大镜</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #accce6;
+    }
+
+    .box {
+      width: 350px;
+      height: 410px;
+      margin: 200px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      position: relative;
+    }
+
+    .preview {
+      position: relative;
+    }
+
+    .preview-img {
+      width: 350px;
+      height: 350px;
+    }
+
+    .img-list {
+      /* position: absolute; */
+      /* left: 0;
+      right: 0;
+      bottom: 0; */
+      width: 350px;
+      height: 50px;
+      overflow: auto;
+      background-color: #f6f6f6;
+    }
+
+    .img-list img {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .mask {
+      width: 175px;
+      height: 175px;
+      background: rgba(247, 233, 176, 0.6);
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: move;
+      display: none;
+    }
+
+    .zoom {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      top: 0;
+      left: 360px;
+      background-color: #fff;
+      overflow: hidden;
+      display: none;
+    }
+
+    .zoom img {
+      width: 120%;
+      height: 120%;
+    }
+
+    img {
+      vertical-align: top;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="preview">
+      <img src="./images/big1.jpg" alt="预览图" class="preview-img">
+      <div class="img-list">
+        <!-- <img src="./images/small1.jpg" alt="小图"> -->
+      </div>
+      <div class="mask"></div>
+    </div>
+    <div class="zoom">
+      <img src="./images/big1.jpg" alt="放大镜图">
+    </div>
+  </div>
+  <script>
+    window.onload = function () {
+      //1.获取相关元素(各种不同的写法)
+      let box = document.getElementsByClassName("box")[0]
+      let preview = box.children[0]
+      let previewImg = preview.children[0]
+      let imgList = preview.children[1]
+      let mask = preview.children[2];
+      let zoom = box.children[1];
+      let zoomImg = zoom.children[0];
+
+      for (let i = 1; i < 9; i++) {
+        let img = document.createElement('img')
+        img.setAttribute('src', `./images/small${i}.jpg`)
+        img.setAttribute('alt', `小图${i}`)
+        imgList.appendChild(img)
+
+        img.onclick = function () {
+          previewImg.setAttribute('src', `./images/big${i}.jpg`)
+          zoomImg.setAttribute('src', `./images/big${i}.jpg`)
+          // console.log(event.target);
+        }
+      }
+
+
+      //2.鼠标放到图片预览区，显示遮罩层和zoom区，移开隐藏(为预览区绑定事件)
+      preview.onmouseenter = function () {
+        show(mask);
+        show(zoom);
+      }
+      preview.onmouseleave = function () {
+        hide(mask);
+        hide(zoom);
+      }
+
+      //3.遮罩层跟随移动
+      //绑定的事件是onmousemove，事件源是preview(只要在preview区域移动，遮罩层也要跟随移动)
+      preview.onmousemove = function (event) {
+        //事件对象
+        event = event || window.event;
+        //想要移动遮罩层，必须要知道鼠标在preview区域中的位置
+        let pageX = event.pageX
+        let pageY = event.pageY
+        //x：mask的left值，y：mask的top值
+        //除以2，可以保证鼠标在mask的中间
+        let x = pageX - box.offsetLeft - mask.offsetWidth / 2
+        let y = pageY - box.offsetTop - mask.offsetHeight / 2
+
+        //限制遮罩层的范围必须在preview区域内，不能移出界
+        //left取值为大于0，小盒子的宽-mask的宽
+        if (x < 0) {
+          x = 0;
+        }
+        if (x > preview.offsetWidth - mask.offsetWidth) {
+          x = preview.offsetWidth - mask.offsetWidth;
+        }
+        //top同理
+        if (y < 0) {
+          y = 0;
+        }
+        if (y > preview.offsetHeight - imgList.offsetHeight - mask.offsetHeight) {
+          y = preview.offsetHeight - imgList.offsetHeight - mask.offsetHeight;
+        }
+
+        //移动遮罩层
+        mask.style.left = x + "px"
+        mask.style.top = y + "px"
+
+        //3.右侧的放大镜zoom区域大图等比例移动
+        //zoom移动的距离/mask盒子的距离 = 大图片尺寸/小图片尺寸
+        let percent = zoomImg.offsetWidth / preview.offsetWidth;
+        // //知道比例，就可以移动大图片了
+        let xx = percent * x;
+        let yy = percent * y;
+
+        zoomImg.style.marginTop = -yy + "px";
+        zoomImg.style.marginLeft = -xx + "px";
+      }
+
+      //显示元素
+      function show(ele) {
+        ele.style.display = "block";
+      }
+
+      // 隐藏元素
+      function hide(ele) {
+        ele.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>

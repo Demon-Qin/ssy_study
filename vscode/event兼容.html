@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取event事件对象兼容性写法</title>
+</head>
+
+<body>
+  <script>
+    //点击页面的任何部分
+    document.onclick = function (event) {
+      event = event || window.event; //兼容性写法
+
+      console.log(event);
+      console.log(event.timeStamp);
+      console.log(event.bubbles);
+      console.log(event.button);
+      console.log(event.pageX);
+      console.log(event.pageY);
+      console.log(event.screenX);
+      console.log(event.screenY);
+      console.log(event.target);
+      console.log(event.type);
+      console.log(event.clientX);
+      console.log(event.clientY);
+    }
+  </script>
+</body>
+
+</html>
